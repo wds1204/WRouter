@@ -1,0 +1,2 @@
+include ':app', ':wrouter-base', ':wrouter-compiler', ':wrouter-api', ':member-module'
+rootProject.name='WRouter'

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">member-module</string>
+    <string name="member">这是会员模块</string>
+</resources>
