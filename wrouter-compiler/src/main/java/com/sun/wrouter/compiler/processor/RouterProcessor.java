@@ -16,76 +16,34 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-import javax.annotation.processing.AbstractProcessor;
-import javax.annotation.processing.Filer;
 import javax.annotation.processing.ProcessingEnvironment;
-import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
-import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
-import javax.lang.model.type.TypeMirror;
-import javax.lang.model.util.Elements;
-import javax.tools.Diagnostic;
 
 /**
  * Copyright (C), 2016-2019, 未来酒店
- * File: RouteProcessor.java
+ * File: RouterProcessor.java
  * Author: wds_sun
  * Date: 2019-10-21 10:27
  * Description:
  */
-@AutoService(Processor.class)
-public class RouteProcessor extends AbstractProcessor {
+public class RouterProcessor extends BaseProcessor {
 
-    private final String KEY_MODULE_NAME = "moduleName";
-    private Filer mFiler;
-    private Elements mElementUtils;
-    private TypeMirror iRouterAction;
-
-    /**
-     * 用来指定支持的 SourceVersion
-     *
-     * @return
-     */
     @Override
-    public SourceVersion getSupportedSourceVersion() {
-        return SourceVersion.RELEASE_8;
+    public synchronized void init(ProcessingEnvironment processingEnvironment) {
+        super.init(processingEnvironment);
+        iRouterAction = mElementUtils.getTypeElement(Consts.ROUTERACTION).asType();
+
     }
 
-    /**
-     * 给到需要处理的注解
-     *
-     * @return
-     */
-    @Override
-    public Set<String> getSupportedAnnotationTypes() {
-        Set<String> types = new LinkedHashSet<>();
-        for (Class<? extends Annotation> annotations : getSupportedAnnotations()) {
-            types.add(annotations.getCanonicalName());
-        }
-        return types;
-    }
-
-    private Set<Class<? extends Annotation>> getSupportedAnnotations() {
+    protected   Set<Class<? extends Annotation>> getSupportedAnnotations() {
         Set<Class<? extends Annotation>> annotations = new LinkedHashSet<>();
         annotations.add(Action.class);
         return annotations;
 
     }
-
-    @Override
-    public synchronized void init(ProcessingEnvironment processingEnvironment) {
-        super.init(processingEnvironment);
-        mFiler = processingEnvironment.getFiler();
-        mElementUtils = processingEnvironment.getElementUtils();
-
-        iRouterAction = mElementUtils.getTypeElement(Consts.ROUTERACTION).asType();
-
-
-    }
-
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
 
@@ -181,22 +139,5 @@ public class RouteProcessor extends AbstractProcessor {
         return false;
     }
 
-
-    private boolean isNotEmpty(Map<String, String> options) {
-        return options != null && !options.isEmpty();
-    }
-
-
-    private void error(Element element, String message, String... args) {
-        printMessage(Diagnostic.Kind.ERROR, element, message, args);
-    }
-
-    private void printMessage(Diagnostic.Kind kind, Element element, String message, Object[] args) {
-        if (args.length > 0) {
-            message = String.format(message, args);
-        }
-
-        processingEnv.getMessager().printMessage(kind, message, element);
-    }
 
 }

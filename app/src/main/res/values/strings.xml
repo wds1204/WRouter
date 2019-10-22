@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WRouter</string>
+    <string name="text_goto">跳转会员模块</string>
+    <string name="gotoShare">跳转分享模块</string>
 </resources>

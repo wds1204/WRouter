@@ -1,1 +1,2 @@
-com.sun.wrouter.compiler.processor.RouteProcessor
+com.sun.wrouter.compiler.processor.InterceptorProcessor
+com.sun.wrouter.compiler.processor.RouterProcessor

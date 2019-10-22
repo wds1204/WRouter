@@ -2,10 +2,16 @@ package com.sun.api.core;
 
 import android.content.Context;
 
+import com.sun.api.ActionPost;
 import com.sun.api.extra.ActionWrapper;
 import com.sun.api.extra.ErrorActionWrapper;
+import com.sun.api.interceptor.ActionInterceptor;
+import com.sun.api.interceptor.ActionInterceptorChain;
+import com.sun.api.result.ActionCallback;
 import com.sun.wrouter.base.ThreadMode;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -17,25 +23,38 @@ import java.util.Map;
  */
 public class RouterForward {
 
+    private final List<ActionInterceptor> mInterceptors;
     private ActionWrapper mActionWrapper;
     private Context mContext;
     private Map<String, Object> mParams;
     private ThreadMode mThreadMode = null;
+    private ActionInterceptor.ActionChain chain;
 
-    public RouterForward() {
-    }
 
-    public RouterForward(ActionWrapper actionWrapper) {
-        this.mActionWrapper=actionWrapper;
+    public RouterForward(ActionWrapper actionWrapper, List<ActionInterceptor> interceptors) {
+        this.mActionWrapper = actionWrapper;
+        this.mInterceptors = interceptors;
+        mParams = new HashMap<>();
+
     }
 
     /**
-     *  执行 Action
+     * 执行 Action
      */
     public void invokeAction() {
-            mActionWrapper.setThreadMode(getThreadMode());
+       invokeAction(ActionCallback.DEFAULT_ACTION_CALLBACK);
+    }
 
-            mActionWrapper.getRouterAction().invokeAction(mContext,mParams);
+    public void invokeAction(ActionCallback callback){
+
+        mActionWrapper.setThreadMode(getThreadMode());
+
+        ActionPost actionPost = ActionPost.obtainActionPost(mActionWrapper, mContext, mParams,callback);
+        if(chain==null) {
+            chain = new ActionInterceptorChain(mInterceptors, actionPost, 0,callback);
+        }
+        chain.proceed(actionPost);
+
     }
 
     private ThreadMode getThreadMode() {
@@ -53,7 +72,7 @@ public class RouterForward {
     }
 
     public RouterForward context(Context context) {
-        this.mContext=context;
+        this.mContext = context;
         return this;
     }
 }

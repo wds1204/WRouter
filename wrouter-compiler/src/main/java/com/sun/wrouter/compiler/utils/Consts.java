@@ -12,6 +12,6 @@ public class Consts {
     public static final String SUFFIX_INTERCEPTORS = "Interceptors";
     public static final String ROUTER_MODULE_PACK_NAME = "com.wrouter.assist.module";
     public static final String ROUTER_INTERCEPTOR_PACK_NAME = "com.wrouter.assist.interceptor";
-    public static final String ACTIONINTERCEPTOR = "com.router.api.interceptor.ActionInterceptor";
+    public static final String ACTIONINTERCEPTOR = "com.sun.api.interceptor.ActionInterceptor";
     public static final String ROUTERACTION = "com.sun.api.action.IRouterAction";
 }

@@ -1,4 +1,4 @@
-package com.sun.api;
+package com.sun.api.result;
 
 /**
  * Copyright (C), 2016-2019, 未来酒店

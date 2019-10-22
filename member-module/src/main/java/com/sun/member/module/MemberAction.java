@@ -3,7 +3,7 @@ package com.sun.member.module;
 import android.content.Context;
 import android.content.Intent;
 
-import com.sun.api.RouterResult;
+import com.sun.api.result.RouterResult;
 import com.sun.api.action.IRouterAction;
 import com.sun.wrouter.base.annotation.Action;
 
@@ -16,7 +16,7 @@ import java.util.Map;
  * Date: 2019-10-21 13:59
  * Description:
  */
-@Action(path = "member/action")
+@Action(path = "member/path")
 public class MemberAction implements IRouterAction {
     @Override
     public RouterResult invokeAction(Context context, Map<String, Object> requestData) {
