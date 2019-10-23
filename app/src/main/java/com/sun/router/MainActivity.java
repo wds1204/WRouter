@@ -18,20 +18,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void gotoMember(View view) {
+    public void gotoMember(final View view) {
 
-        WRouter.getInstance().action("member/path").context(this).invokeAction(new ActionCallback() {
-            @Override
-            public void onInterrupt() {
-                Log.e("TAG", "拦截了");
-            }
 
-            @Override
-            public void onResult(RouterResult result) {
+
+        new Thread(){
+            public void run(){
+                WRouter.getInstance().action("member/path").context(view.getContext()).invokeAction(new ActionCallback() {
+                    @Override
+                    public void onInterrupt() {
+                        Log.e("TAG", "拦截了");
+                    }
+
+                    @Override
+                    public void onResult(RouterResult result) {
 //                Log.e("TAG", "result"+result.toString());
 
+                    }
+                });
             }
-        });
+        }.start();
     }
 
     public void gotoShare(View view) {

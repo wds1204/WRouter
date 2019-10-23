@@ -1,11 +1,14 @@
 package com.sun.api.interceptor;
 
+import android.os.Looper;
 import android.util.Log;
 
-import com.sun.api.ActionPost;
+import com.sun.api.thread.ActionPost;
 import com.sun.api.result.RouterResult;
 import com.sun.api.action.IRouterAction;
 import com.sun.api.extra.ActionWrapper;
+import com.sun.api.thread.PosterSupport;
+import com.sun.wrouter.base.ThreadMode;
 
 /**
  * Copyright (C), 2016-2019, 未来酒店
@@ -19,10 +22,38 @@ public class CallActionInterceptor implements ActionInterceptor {
     public void intercept(ActionChain chain) {
         ActionPost action = chain.action();
 
-        invokeAction(action);
+        invokeAction(action, Looper.myLooper() == Looper.getMainLooper());
     }
 
     private void invokeAction(ActionPost action, boolean isMainThread) {
+        ActionWrapper actionWrapper = action.actionWrapper;
+        ThreadMode threadMode = actionWrapper.getThreadMode();
+        switch (threadMode) {
+            case POSTING:
+                invokeAction(action);
+                break;
+            case MAIN:
+                if (isMainThread) {
+                    invokeAction(action);
+                } else {
+                    Log.e("TAG", "invokeAction--------->"+Thread.currentThread().getName());
+                    PosterSupport.getMainPoster().enqueue(action);
+                }
+                break;
+            case BACKGROUND:
+                    if(isMainThread) {
+
+                    }else {
+                        invokeAction(action);
+                    }
+                break;
+            case ASYNC:
+
+                break;
+            default:
+                throw new IllegalStateException("Unknown thread mode: " + action.actionWrapper.getThreadMode());
+        }
+
     }
 
     /**

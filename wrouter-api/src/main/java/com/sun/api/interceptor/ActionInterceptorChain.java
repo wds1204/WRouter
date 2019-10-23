@@ -1,6 +1,6 @@
 package com.sun.api.interceptor;
 
-import com.sun.api.ActionPost;
+import com.sun.api.thread.ActionPost;
 import com.sun.api.result.ActionCallback;
 
 import java.util.List;

@@ -1,9 +1,6 @@
 package com.sun.member.module;
 
-import android.content.Intent;
-import android.util.Log;
-
-import com.sun.api.ActionPost;
+import com.sun.api.thread.ActionPost;
 import com.sun.api.core.WRouter;
 import com.sun.api.interceptor.ActionInterceptor;
 import com.sun.wrouter.base.annotation.Interceptor;

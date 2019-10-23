@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import com.sun.api.result.RouterResult;
 import com.sun.api.action.IRouterAction;
+import com.sun.wrouter.base.ThreadMode;
 import com.sun.wrouter.base.annotation.Action;
 
 import java.util.Map;
@@ -16,7 +17,7 @@ import java.util.Map;
  * Date: 2019-10-21 13:59
  * Description:
  */
-@Action(path = "member/path")
+@Action(path = "member/path",threadMode=ThreadMode.MAIN)
 public class MemberAction implements IRouterAction {
     @Override
     public RouterResult invokeAction(Context context, Map<String, Object> requestData) {

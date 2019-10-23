@@ -2,7 +2,7 @@ package com.sun.api.interceptor;
 
 import android.util.Log;
 
-import com.sun.api.ActionPost;
+import com.sun.api.thread.ActionPost;
 import com.sun.api.extra.ErrorActionWrapper;
 
 /**

@@ -2,9 +2,8 @@ package com.sun.api.core;
 
 import android.content.Context;
 
-import com.sun.api.ActionPost;
+import com.sun.api.thread.ActionPost;
 import com.sun.api.extra.ActionWrapper;
-import com.sun.api.extra.ErrorActionWrapper;
 import com.sun.api.interceptor.ActionInterceptor;
 import com.sun.api.interceptor.ActionInterceptorChain;
 import com.sun.api.result.ActionCallback;

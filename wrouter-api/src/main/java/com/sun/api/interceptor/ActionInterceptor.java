@@ -1,6 +1,6 @@
 package com.sun.api.interceptor;
 
-import com.sun.api.ActionPost;
+import com.sun.api.thread.ActionPost;
 
 /**
  * Copyright (C), 2016-2019, 未来酒店

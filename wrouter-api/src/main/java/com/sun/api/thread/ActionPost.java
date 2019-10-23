@@ -1,6 +1,7 @@
-package com.sun.api;
+package com.sun.api.thread;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.sun.api.extra.ActionWrapper;
 import com.sun.api.result.ActionCallback;
@@ -47,5 +48,21 @@ public class ActionPost {
             }
         }
         return new ActionPost(mActionWrapper, mContext, mParams, callback);
+    }
+
+    public void releasePendingPost() {
+        this.context = null;
+        this.actionWrapper = null;
+        this.next = null;
+        this.callback = null;
+
+        synchronized (pendingPostPool) {
+            // Don't let the pool grow indefinitely
+            if (pendingPostPool.size() < 10000) {
+                pendingPostPool.add(this);
+
+            }
+
+        }
     }
 }
