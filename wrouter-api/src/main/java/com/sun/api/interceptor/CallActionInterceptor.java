@@ -42,13 +42,13 @@ public class CallActionInterceptor implements ActionInterceptor {
                 break;
             case BACKGROUND:
                     if(isMainThread) {
-
+                        PosterSupport.getBackgroundPoster().enqueue(action);
                     }else {
                         invokeAction(action);
                     }
                 break;
             case ASYNC:
-
+                PosterSupport.getAsyncPoster().enqueue(action);
                 break;
             default:
                 throw new IllegalStateException("Unknown thread mode: " + action.actionWrapper.getThreadMode());
