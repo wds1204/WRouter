@@ -1,7 +1,17 @@
 # WRouter
 WRouter: Android平台多模块开发的路由库：
 
+**主工程和其它模块的gradle添加依赖**
+```groovy
 
+dependencies {
+    //...
+    implementation project(path: ':wrouter-api')
+    annotationProcessor project(path: ':wrouter-compiler')
+    implementation project(path: ':wrouter-base')
+   
+}
+```
 **初始化**
 ```
 WRouter.getInstance().init(this);
@@ -14,7 +24,8 @@ WRouter.getInstance().init(this);
     }
     
  defaultConfig {
-         
+         //...
+      
          javaCompileOptions {
              annotationProcessorOptions {
                   //每个模块的moduleName不能重复
@@ -40,7 +51,7 @@ public class MemberAction implements IRouterAction {
 
 **调用方式**
 
-```java
+```
 // member/path 与添加的action注解中的path路径相同
 WRouter.getInstance().action("member/path").context(context).invokeAction();
 
