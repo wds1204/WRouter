@@ -12,11 +12,8 @@ dependencies {
    
 }
 ```
-**初始化**
-```
-WRouter.getInstance().init(this);
-```
-**在需要的模块中的gradle添加moduleName**
+
+**在每个模块的gradle中添加moduleName，如下配置**
 ```groovy
 
  repositories {
@@ -34,6 +31,12 @@ WRouter.getInstance().init(this);
          }
      }
 ```
+
+**初始化**
+```
+WRouter.getInstance().init(this);
+```
+
 **并在需要的模块中添加action**
 
 ```java
