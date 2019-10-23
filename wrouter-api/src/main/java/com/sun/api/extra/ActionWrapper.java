@@ -4,7 +4,7 @@ import com.sun.api.action.IRouterAction;
 import com.sun.wrouter.base.ThreadMode;
 
 /**
- * Copyright (C), 2016-2019, 未来酒店
+ * Copyright (C), 2016-2019
  * File: ActionWrapper.java
  * Author: wds_sun
  * Date: 2019-10-21 15:09

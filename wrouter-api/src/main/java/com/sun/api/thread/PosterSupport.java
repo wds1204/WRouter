@@ -6,7 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Copyright (C), 2016-2019, 未来酒店
+ * Copyright (C), 2016-2019
  * File: PosterSupport.java
  * Author: wds_sun
  * Date: 2019-10-23 14:57

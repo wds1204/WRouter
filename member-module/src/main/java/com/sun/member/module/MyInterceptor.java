@@ -6,7 +6,7 @@ import com.sun.api.interceptor.ActionInterceptor;
 import com.sun.wrouter.base.annotation.Interceptor;
 
 /**
- * Copyright (C), 2016-2019, 未来酒店
+ * Copyright (C), 2016-2019
  * File: MyInterceptor.java
  * Author: wds_sun
  * Date: 2019-10-21 19:24

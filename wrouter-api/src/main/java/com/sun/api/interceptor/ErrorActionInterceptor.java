@@ -6,7 +6,7 @@ import com.sun.api.thread.ActionPost;
 import com.sun.api.extra.ErrorActionWrapper;
 
 /**
- * Copyright (C), 2016-2019, 未来酒店
+ * Copyright (C), 2016-2019
  * File: ErrorActionInterceptor.java
  * Author: wds_sun
  * Date: 2019-10-22 10:50

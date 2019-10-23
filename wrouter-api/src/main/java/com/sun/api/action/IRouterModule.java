@@ -3,7 +3,7 @@ package com.sun.api.action;
 import com.sun.api.extra.ActionWrapper;
 
 /**
- * Copyright (C), 2016-2019, 未来酒店
+ * Copyright (C), 2016-2019
  * File: IRouterModule.java
  * Author: wds_sun
  * Date: 2019-10-21 14:32

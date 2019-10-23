@@ -3,7 +3,7 @@ package com.sun.api.interceptor;
 import com.sun.api.thread.ActionPost;
 
 /**
- * Copyright (C), 2016-2019, 未来酒店
+ * Copyright (C), 2016-2019
  * File: ActionInterceptor.java
  * Author: wds_sun
  * Date: 2019-10-21 19:08

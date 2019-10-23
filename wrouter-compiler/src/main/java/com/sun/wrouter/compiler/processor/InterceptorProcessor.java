@@ -24,7 +24,7 @@ import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.TypeMirror;
 
 /**
- * Copyright (C), 2016-2019, 未来酒店
+ * Copyright (C), 2016-2019
  * File: InterceptorProcessor.java
  * Author: wds_sun
  * Date: 2019-10-21 19:09

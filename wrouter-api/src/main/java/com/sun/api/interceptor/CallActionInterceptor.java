@@ -11,7 +11,7 @@ import com.sun.api.thread.PosterSupport;
 import com.sun.wrouter.base.ThreadMode;
 
 /**
- * Copyright (C), 2016-2019, 未来酒店
+ * Copyright (C), 2016-2019
  * File: CallActionInterceptor.java
  * Author: wds_sun
  * Date: 2019-10-22 11:00

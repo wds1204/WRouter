@@ -1,10 +1,11 @@
 package com.sun.api.extra;
 
 /**
- * description:
- * author: Darren on 2018/1/23 15:45
- * email: 240336124@qq.com
- * version: 1.0
+ * Copyright (C), 2016-2019
+ * File: ErrorActionWrapper.java
+ * Author: wds_sun
+ * Date: 2019-10-21 15:09
+ * Description:
  */
 public class ErrorActionWrapper extends ActionWrapper {
     public ErrorActionWrapper() {

@@ -23,7 +23,7 @@ import javax.lang.model.util.Elements;
 import javax.tools.Diagnostic;
 
 /**
- * Copyright (C), 2016-2019, 未来酒店
+ * Copyright (C), 2016-2019
  * File: BaseProcessor.java
  * Author: wds_sun
  * Date: 2019-10-21 19:10

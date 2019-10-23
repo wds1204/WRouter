@@ -1,7 +1,7 @@
 package com.sun.api.result;
 
 /**
- * Copyright (C), 2016-2019, 未来酒店
+ * Copyright (C), 2016-2019
  * File: ActionCallback.java
  * Author: wds_sun
  * Date: 2019-10-22 11:46

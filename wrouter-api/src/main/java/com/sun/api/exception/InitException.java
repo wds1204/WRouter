@@ -1,7 +1,7 @@
 package com.sun.api.exception;
 
 /**
- * Copyright (C), 2016-2019, 未来酒店
+ * Copyright (C), 2016-2019
  * File: InitException.java
  * Author: wds_sun
  * Date: 2019-10-21 11:35
